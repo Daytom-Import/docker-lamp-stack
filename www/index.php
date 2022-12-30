@@ -52,9 +52,9 @@
                         <hr>
                         <div class="content">
                             <ul>
-                                <li><a href="http://localhost/phpinfo.php">phpinfo()</a></li>
-                                <li><a href="http://localhost:8080">phpMyAdmin</a></li>
-                                <li><a href="http://localhost/test_db.php">Test DB Connection</a></li>
+                                <li><a href="http://154.53.35.22//phpinfo.php">phpinfo()</a></li>
+                                <li><a href="http://154.53.35.22/:8888">phpMyAdmin</a></li>
+                                <li><a href="http://154.53.35.22//test_db.php">Test DB Connection</a></li>
                             </ul>
                         </div>
                     </div>
