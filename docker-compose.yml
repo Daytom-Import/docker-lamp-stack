@@ -10,33 +10,32 @@ services:
       - "80:80"
       - "443:443"
     links: 
-      - mysql
+      - phpmyadmin
     volumes: 
       - ./www:/var/www/html/
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini
       - ${VHOSTS_DIR-./config/vhosts}:/etc/apache2/sites-enabled/
       - ${LOG_DIR-./logs/apache2}:/var/log/apache2
-  mysql:
-    build: ./bin/mysql
-    container_name: 'lastwow-mysql'
-    restart: 'always'
-    ports:
-      - "3306:3306"
-    volumes: 
-      - ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
-      - ${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: s4rCaJl9xY7zJ0O
-      MYSQL_DATABASE: web
-      MYSQL_USER: lastwowdb
-      MYSQL_PASSWORD: s4rCaJl9xY7zJ0O
+  # mysql:
+  #   build: ./bin/mysql
+  #   container_name: 'lastwow-mysql'
+  #   restart: 'always'
+  #   ports:
+  #     - "3306:3306"
+  #   volumes: 
+  #     - ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
+  #     - ${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: s4rCaJl9xY7zJ0O
+  #     MYSQL_DATABASE: web
+  #     MYSQL_USER: lastwowdb
+  #     MYSQL_PASSWORD: s4rCaJl9xY7zJ0O
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: 'lastwow-phpmyadmin'
-    links:
-      - mysql
     environment:
-      PMA_HOST: mysql
+      # PMA_HOST: mysql
+      PMA_HOST: localhost
       PMA_PORT: 3306
     ports:
       - '8888:80'
